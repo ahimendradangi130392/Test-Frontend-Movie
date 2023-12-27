@@ -61,7 +61,6 @@ const CreateMovie = () => {
     try {
       const response = await fetch("http://103.186.184.179:3003/api/movie", {
         method: "POST",
-        mode: "cors",
         body: formData,
       });
 

@@ -24,15 +24,7 @@ const Home = () => {
   const fetchMovies = async () => {
     try {
       const response = await fetch(
-        `http://103.186.184.179:3003/api/movie?limit=8&page=${currentPage}`,
-        {
-          method: "GET",
-          mode: "cors", // Enable CORS
-          headers: {
-            "Content-Type": "application/json",
-            // You can add other headers as needed
-          },
-        }
+        `http://103.186.184.179:3003/api/movie?limit=8&page=${currentPage}`
       );
 
       if (!response.ok) {

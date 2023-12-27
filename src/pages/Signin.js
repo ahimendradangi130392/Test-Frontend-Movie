@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,13 @@ const Signin = () => {
     password: "",
   });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -44,7 +51,7 @@ const Signin = () => {
     }
 
     axios
-      .post("http://103.186.184.179:3003/api/auth/login", credentials, true)
+      .post("http://103.186.184.179:3003/api/auth/login", credentials)
       .then((response) => {
         localStorage.setItem("token", JSON.stringify(response.data.token));
         navigate("/");

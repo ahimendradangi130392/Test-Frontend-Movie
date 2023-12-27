@@ -18,15 +18,7 @@ const EditMovie = (props) => {
     const fetchMovie = async () => {
       try {
         const response = await fetch(
-          `http://103.186.184.179:3003/api/movie/${movieId}`,
-          {
-            method: "GET",
-            mode: "cors", // Enable CORS
-            headers: {
-              "Content-Type": "application/json",
-              // You can add other headers as needed
-            },
-          }
+          `http://103.186.184.179:3003/api/movie/${movieId}`
         );
 
         if (!response.ok) {
@@ -74,7 +66,6 @@ const EditMovie = (props) => {
     try {
       const response = await fetch(`http://103.186.184.179:3003/api/movie`, {
         method: "PATCH",
-        mode: "cors",
         body: formData,
       });
 
